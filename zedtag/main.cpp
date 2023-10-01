@@ -104,7 +104,7 @@ void print_detection(AprilTags::TagDetection& detection) {
 
     Eigen::Vector3d translation;
     Eigen::Matrix3d rotation;
-    detection.getRelativeTranslationRotation(0.166d, 526.195d, 526.105d, 0.0001d, -0.0005d,
+    detection.getRelativeTranslationRotation(0.16d, 526.195d, 526.105d, 623.99d, 379.18d,
                                              translation, rotation);
 
     Eigen::Matrix3d F;
@@ -124,7 +124,7 @@ void print_detection(AprilTags::TagDetection& detection) {
          << ", pitch=" << pitch * 180 / PI
          << ", roll=" << roll * 180 / PI
          << endl;
-
+    
     // Also note that for SLAM/multi-view application it is better to
     // use reprojection error of corner points, because the noise in
     // this relative pose is very non-Gaussian; see iSAM source code
@@ -206,7 +206,7 @@ int main () {
     double cam_fy = 526.105;
     double cam_px = 0.0001;
     double cam_py = -0.0005;
-    AprilTags::TagDetector* tagDetector = new AprilTags::TagDetector(AprilTags::tagCodes36h11);
+    AprilTags::TagDetector* tagDetector = new AprilTags::TagDetector(AprilTags::tagCodes25h9);
     cv::namedWindow(windowName, 1);
 
     // Loop
